@@ -1,0 +1,33 @@
+name: Release Gem
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.*'
+
+jobs:
+  release:
+    name: Build and push to RubyGems
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0.1
+
+      - name: Set RubyGems credentials
+        run: |
+          mkdir -p $HOME/.gem
+          touch $HOME/.gem/credentials
+          chmod 0600 $HOME/.gem/credentials
+          printf -- "---\n:rubygems_api_key: ${{ secrets.RUBYGEMS_AUTH_TOKEN }}\n" > $HOME/.gem/credentials
+
+      - name: Build Gem
+        run: gem build *.gemspec
+
+      - name: Push Gem to RubyGems
+        run: gem push *.gem
