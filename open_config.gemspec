@@ -5,6 +5,7 @@ require_relative 'lib/open_config/version'
 Gem::Specification.new do |spec|
   spec.name          = 'open_config'
   spec.version       = OpenConfig::VERSION
+  spec.license       = 'MIT'
 
   spec.authors       = ['Egor Iskrenkov']
   spec.email         = ['e.iskrenkov@gmail.com']
