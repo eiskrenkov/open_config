@@ -4,7 +4,7 @@ module OpenConfig
   class Base
     attr_reader :file_path
 
-    def initialize(root:, file:)
+    def initialize(root: Dir.pwd, file:)
       @file_path = File.join(root, file)
     end
 
