@@ -8,14 +8,11 @@ Gem::Specification.new do |spec|
   spec.license       = 'MIT'
 
   spec.authors       = ['Egor Iskrenkov']
-  spec.email         = ['e.iskrenkov@gmail.com']
+  spec.email         = ['egor@iskrenkov.me']
 
   spec.summary       = 'Building OpenStruct trees from configuration files'
   spec.homepage      = 'https://github.com/eiskrenkov/open_config'
 
-  spec.files         = Dir['LICENSE', 'README.md', "lib/**/*"]
+  spec.files         = Dir['lib/**/*.rb']
   spec.require_paths = ['lib']
-  spec.bindir        = 'bin'
-
-  spec.required_ruby_version = '>= 2.4.0'
 end
