@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'files/base'
-require_relative 'files/yaml'
-require_relative 'files/json'
+require 'open_config/files/base'
+require 'open_config/files/yaml'
+require 'open_config/files/json'

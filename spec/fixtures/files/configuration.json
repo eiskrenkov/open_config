@@ -1,0 +1,15 @@
+{
+  "top": "Top String",
+  "node": {
+    "string": "Node String",
+    "integer": 123,
+    "float": 1.23,
+    "boolean": false,
+    "nested_node": {
+      "array": [
+        "First Element",
+        "Second Element"
+      ]
+    }
+  }
+}

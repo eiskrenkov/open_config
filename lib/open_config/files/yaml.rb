@@ -5,19 +5,24 @@ require 'json'
 require 'erb'
 
 module OpenConfig
-  class YAML < OpenConfig::Base
+  class YAML < Base
+    def initialize(path, aliases: true)
+      @aliases = aliases
+      super(path)
+    end
+
     private
 
     def parse_file(file_content)
-      ::JSON.parse(build_json(file_content), object_class: OpenStruct)
+      ::JSON.parse(load_yaml(file_content).to_json, object_class: OpenConfig::Node)
     end
 
-    def build_json(file_content)
-      ::YAML.safe_load(load_erb(file_content)).to_json
+    def load_yaml(file_content)
+      ::YAML.load(compile(file_content), aliases: @aliases)
     end
 
-    def load_erb(file_content)
-      ::ERB.new(file_content).result
+    def compile(file_content)
+      defined?(::ERB) ? ::ERB.new(file_content).result : file_content
     end
   end
 end

@@ -1,0 +1,17 @@
+ruby: <%= 2 + 2 * 2 %>
+env: <%= ENV['TEST_ENV_VAR'] %>
+
+node:
+  string: Test String
+  integer: 123
+  float: 1.23
+  boolean: false
+  shared_node: &shared_node
+    array:
+      - First Element
+      - Second Element
+
+  first_nested_node: *shared_node
+  second_nested_node:
+    <<: *shared_node
+    integer: 123
