@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
-require_relative 'open_config/version'
-require_relative 'open_config/errors'
-require_relative 'open_config/files'
+require 'open_config/version'
+require 'open_config/node'
+require 'open_config/files'
+require 'open_config/errors'
 
 module OpenConfig
 end
