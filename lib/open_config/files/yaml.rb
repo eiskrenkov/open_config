@@ -6,11 +6,6 @@ require 'erb'
 
 module OpenConfig
   class YAML < Base
-    def initialize(path, aliases: true)
-      @aliases = aliases
-      super(path)
-    end
-
     private
 
     def parse_file(file_content)
@@ -18,7 +13,7 @@ module OpenConfig
     end
 
     def load_yaml(file_content)
-      ::YAML.load(compile(file_content), aliases: @aliases)
+      ::YAML.load(compile(file_content))
     end
 
     def compile(file_content)
