@@ -3,7 +3,9 @@
 require 'spec_helper'
 
 RSpec.describe OpenConfig::Node do
-  def node(hash) = described_class.new(hash)
+  def node(hash)
+    described_class.new(hash)
+  end
 
   subject do
     node(
