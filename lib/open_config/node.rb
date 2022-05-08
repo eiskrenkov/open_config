@@ -15,11 +15,8 @@ module OpenConfig
     end
 
     def to_h
-      super do |name, value|
-        [
-          name,
-          value.instance_of?(self.class) ? value.to_h : value
-        ]
+      super.transform_values do |value|
+        value.instance_of?(self.class) ? value.to_h : value
       end
     end
 
