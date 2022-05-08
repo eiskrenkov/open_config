@@ -13,7 +13,11 @@ module OpenConfig
     end
 
     def load_yaml(file_content)
-      ::YAML.load(compile(file_content))
+      begin
+        ::YAML.load(compile(file_content), aliases: true)
+      rescue ArgumentError
+        ::YAML.load(compile(file_content))
+      end
     end
 
     def compile(file_content)
