@@ -25,7 +25,7 @@ module OpenConfig
     end
 
     def read_file
-      raise OpenConfig::Errors::FileNotFound, @path unless File.exists?(@path)
+      raise OpenConfig::Errors::FileNotFound, @path unless File.exist?(@path)
 
       File.read(@path)
     end
